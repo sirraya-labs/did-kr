@@ -49,18 +49,17 @@
             background: var(--bg);
         }
 
-        /* ── Full screen layout ── */
+        /* ── Full width layout ── */
         .page-wrap {
             display: grid;
-            grid-template-columns: 260px 1fr;
+            grid-template-columns: 280px 1fr;
             min-height: 100vh;
-            max-width: 1600px;
-            margin: 0 auto;
+            width: 100%;
+            margin: 0;
             background: var(--paper);
-            box-shadow: 0 0 40px rgba(0,0,0,0.02);
         }
 
-        /* ── Sidebar TOC ── */
+        /* ── Sidebar TOC - flush left ── */
         .sidebar {
             position: sticky;
             top: 0;
@@ -68,7 +67,7 @@
             overflow-y: auto;
             background: var(--ink);
             color: #e2e8f0;
-            padding: 2.5rem 0;
+            padding: 2rem 0;
             font-size: 0.85rem;
             border-right: 1px solid rgba(255,255,255,0.05);
             scrollbar-width: thin;
@@ -87,7 +86,7 @@
         }
 
         .sidebar-logo {
-            padding: 0 2rem 2rem;
+            padding: 0 1.5rem 2rem 1.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.08);
             margin-bottom: 2rem;
         }
@@ -122,7 +121,7 @@
         }
 
         .toc-section {
-            padding: 0 2rem;
+            padding: 0 1.5rem;
             margin-bottom: 2rem;
         }
 
@@ -165,8 +164,9 @@
         /* ── Main content ── */
         .main {
             background: var(--paper);
-            padding: 3rem 4rem 6rem;
-            max-width: 1000px;
+            padding: 3rem 3rem 6rem 3rem;
+            max-width: 1200px;
+            width: 100%;
         }
 
         /* ── Header ── */
@@ -498,35 +498,6 @@
 
         .param-box .param-val { color: var(--ink); }
 
-        /* ── Diff tags ── */
-        .tag-new {
-            display: inline-block;
-            font-family: var(--mono);
-            font-size: 0.6rem;
-            background: var(--fixed-bg);
-            color: var(--fixed);
-            border: 1px solid #6ee7b7;
-            border-radius: 20px;
-            padding: 0.15em 0.6em;
-            vertical-align: middle;
-            letter-spacing: 0.05em;
-            margin-left: 0.5rem;
-        }
-
-        .tag-changed {
-            display: inline-block;
-            font-family: var(--mono);
-            font-size: 0.6rem;
-            background: var(--accent-bg);
-            color: var(--accent-2);
-            border: 1px solid #93c5fd;
-            border-radius: 20px;
-            padding: 0.15em 0.6em;
-            vertical-align: middle;
-            letter-spacing: 0.05em;
-            margin-left: 0.5rem;
-        }
-
         /* ── Footer ── */
         .spec-footer {
             margin-top: 5rem;
@@ -554,12 +525,12 @@
 <body>
 <div class="page-wrap">
 
-    <!-- ════════════════ SIDEBAR ════════════════ -->
+    <!-- ════════════════ SIDEBAR - FLUSH LEFT ════════════════ -->
     <aside class="sidebar">
         <div class="sidebar-logo">
             <div class="org">Sirraya Labs</div>
             <div class="spec-name">DID Key Recovery<br>Specification</div>
-            <span class="version-badge">v1.0.0 · rev 2.1</span>
+            <span class="version-badge">v1.0.0</span>
         </div>
 
         <div class="toc-section">
@@ -636,7 +607,7 @@
                 </div>
                 <div class="meta-cell">
                     <div class="label">Version</div>
-                    <div class="value">1.0.0 rev 2.1</div>
+                    <div class="value">1.0.0</div>
                 </div>
                 <div class="meta-cell">
                     <div class="label">Repository</div>

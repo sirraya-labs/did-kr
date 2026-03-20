@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-03-20T12:02:45.911171500+00:00",
+  "parameters": {
+    "p": "0x50179e4375e428b3af8fe52af1f2a50e5100b916d0d1c1bbedc304c3d35f3217",
+    "q": "0x280bcf21baf21459d7c7f29578f9528728805c8b6868e0ddf6e18261e9af990b",
+    "g": "4"
+  },
+  "tests": [
+    {
+      "name": "Group Parameter Validation",
+      "passed": true,
+      "duration_ms": 3.8802,
+      "details": "All group parameter checks passed"
+    },
+    {
+      "name": "Random Secret Generation and Recovery",
+      "passed": true,
+      "duration_ms": 37.083400000000005,
+      "details": "Successfully tested 10 random secrets with 3-of-5 threshold"
+    },
+    {
+      "name": "Proactive Share Refreshment",
+      "passed": true,
+      "duration_ms": 7.6865,
+      "details": "Successfully performed 5 refresh cycles while preserving secret"
+    },
+    {
+      "name": "Edge Cases and Configurations",
+      "passed": true,
+      "duration_ms": 13.5881,
+      "details": "All threshold configurations validated"
+    },
+    {
+      "name": "Performance Benchmarks",
+      "passed": true,
+      "duration_ms": 123.83080000000001,
+      "details": "Generated 100 iterations"
+    },
+    {
+      "name": "Zero-Knowledge Proof Simulation",
+      "passed": true,
+      "duration_ms": 0.8704999999999999,
+      "details": "Schnorr ZKP verification successful"
+    }
+  ],
+  "summary": {
+    "total_tests": 6,
+    "passed": 6,
+    "failed": 0,
+    "success_rate": 100.0
+  },
+  "performance_metrics": {
+    "share_generation_avg_ms": 0.32508400000000004,
+    "share_verification_avg_ms": 0.1380152,
+    "secret_recovery_avg_ms": 0.20274599999999998,
+    "refresh_cycle_avg_ms": 0.145,
+    "zero_knowledge_proof_ms": 0.25549999999999995
+  }
+}

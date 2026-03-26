@@ -1191,28 +1191,28 @@ L<sub>j</sub>(0)  =  ∏<sub>m≠j</sub>  (0 − x<sub>m</sub>) / (x<sub>j</sub>
 
             <div class="callout note">
                 <div class="callout-label">Normative Reference</div>
-                <p>This section provides a summary of key security considerations. For complete threat taxonomy, detailed attack catalog, and comprehensive countermeasures, refer to the <strong><a href="https://github.com/sirraya-labs/did-tm" target="_blank" rel="noopener noreferrer">DID Threat Model Specification (DID-TM)</a></strong>, which formalizes the threats introduced here and provides CVSS-DID scoring, attack trees, and normative requirements traceable to each threat.</p>
+                <p>This section provides a summary of key security considerations. For complete threat taxonomy, detailed attack catalog, and comprehensive countermeasures, refer to the <strong><a href="https://sirraya-labs.github.io/did-tm/" target="_blank" rel="noopener noreferrer">DID Threat Model Specification (DID-TM) — HTML Preview</a></strong> and the <strong><a href="https://github.com/sirraya-labs/did-tm" target="_blank" rel="noopener noreferrer">DID-TM GitHub Repository</a></strong>, which formalize the threats introduced here and provide CVSS-DID scoring, attack trees, and normative requirements traceable to each threat.</p>
             </div>
 
             <h3>8.1 Guardian Collusion (Type A)</h3>
             <p><strong>Threat:</strong> A threshold of guardians collude to reconstruct the user's private key.</p>
             <p><strong>Mitigation:</strong> Feldman VSS with Pedersen commitments ensures shares are individually verifiable. Guardians SHOULD be selected from diverse trust domains, and threshold SHOULD be ≥ 3-of-5.</p>
-            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-e">E — Privilege Escalation</span> and <span class="tc tc-k">K (K2 — Share Lifecycle Failure)</span>. Full analysis in <strong><a href="https://github.com/sirraya-labs/did-tm#did-tm-atk-400" target="_blank" rel="noopener noreferrer">DID-TM-ATK-400</a></strong> (Guardian Collusion at Threshold). Normative mitigations: REQ-400, REQ-401, REQ-402, REQ-403.</p>
+            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-e">E — Privilege Escalation</span> and <span class="tc tc-k">K (K2 — Share Lifecycle Failure)</span>. Full analysis in <strong><a href="https://sirraya-labs.github.io/did-tm/#did-tm-atk-400" target="_blank" rel="noopener noreferrer">DID-TM-ATK-400</a></strong> (Guardian Collusion at Threshold). Normative mitigations: REQ-400, REQ-401, REQ-402, REQ-403.</p>
 
             <h3>8.2 Time-Lock Bypass (Type B)</h3>
             <p><strong>Threat:</strong> An attacker compromises the dead man's switch to release inheritance keys prematurely.</p>
             <p><strong>Mitigation:</strong> VDFs provide computational asymmetry that cannot be parallelized, making premature release computationally infeasible within the specified time window.</p>
-            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-k">K (K3 — Time-Lock Integrity Failure)</span>. Full analysis in <strong><a href="https://github.com/sirraya-labs/did-tm#did-tm-atk-402" target="_blank" rel="noopener noreferrer">DID-TM-ATK-402</a></strong> (VDF Difficulty Miscalibration) and <strong><a href="https://github.com/sirraya-labs/did-tm#did-tm-atk-431" target="_blank" rel="noopener noreferrer">DID-TM-ATK-431</a></strong> (Wesolowski Proof Forgery). Normative mitigations: REQ-408, REQ-409, REQ-410, REQ-411, REQ-442, REQ-443, REQ-444.</p>
+            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-k">K (K3 — Time-Lock Integrity Failure)</span>. Full analysis in <strong><a href="https://sirraya-labs.github.io/did-tm/#did-tm-atk-402" target="_blank" rel="noopener noreferrer">DID-TM-ATK-402</a></strong> (VDF Difficulty Miscalibration) and <strong><a href="https://sirraya-labs.github.io/did-tm/#did-tm-atk-431" target="_blank" rel="noopener noreferrer">DID-TM-ATK-431</a></strong> (Wesolowski Proof Forgery). Normative mitigations: REQ-408, REQ-409, REQ-410, REQ-411, REQ-442, REQ-443, REQ-444.</p>
 
             <h3>8.3 Provider State Drift (Type C)</h3>
             <p><strong>Threat:</strong> MPC providers update shares independently, causing key desynchronization.</p>
             <p><strong>Mitigation:</strong> Proactive Secret Sharing with verifiable refresh transcripts (§7.1.4) ensures consistency. The catch-up protocol (§5.4.3) handles epoch lag.</p>
-            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-k">K (K2 — Share Lifecycle Failure)</span> and <span class="tc tc-d">D — Denial of Service</span>. Full analysis in <strong><a href="https://github.com/sirraya-labs/did-tm#did-tm-atk-401" target="_blank" rel="noopener noreferrer">DID-TM-ATK-401</a></strong> (MPC Epoch Share Drift). Normative mitigations: REQ-404, REQ-405, REQ-406, REQ-407.</p>
+            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-k">K (K2 — Share Lifecycle Failure)</span> and <span class="tc tc-d">D — Denial of Service</span>. Full analysis in <strong><a href="https://sirraya-labs.github.io/did-tm/#did-tm-atk-401" target="_blank" rel="noopener noreferrer">DID-TM-ATK-401</a></strong> (MPC Epoch Share Drift). Normative mitigations: REQ-404, REQ-405, REQ-406, REQ-407.</p>
 
             <h3>8.4 Recovery-Loop Prevention</h3>
             <p><strong>Threat:</strong> Circular recovery dependencies make recovery impossible.</p>
             <p><strong>Mitigation:</strong> Implementations MUST validate that the dependency graph of recovery methods is acyclic at publication time, at recovery initiation, and during periodic health checks.</p>
-            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-d">D — Denial of Service</span> and <span class="tc tc-k">K (K6 — Inheritance and Recovery Chain Failure)</span>. Full analysis in <strong><a href="https://github.com/sirraya-labs/did-tm#did-tm-atk-404" target="_blank" rel="noopener noreferrer">DID-TM-ATK-404</a></strong> (Recovery Loop Deadlock). Normative mitigations: REQ-415, REQ-416, REQ-417.</p>
+            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-d">D — Denial of Service</span> and <span class="tc tc-k">K (K6 — Inheritance and Recovery Chain Failure)</span>. Full analysis in <strong><a href="https://sirraya-labs.github.io/did-tm/#did-tm-atk-404" target="_blank" rel="noopener noreferrer">DID-TM-ATK-404</a></strong> (Recovery Loop Deadlock). Normative mitigations: REQ-415, REQ-416, REQ-417.</p>
 
             <div class="math-block">
         function checkAcyclic(did, visited = new Set()):
@@ -1252,7 +1252,7 @@ L<sub>j</sub>(0)  =  ∏<sub>m≠j</sub>  (0 − x<sub>m</sub>) / (x<sub>j</sub>
             <h3>8.5 Key Wrapping Security</h3>
             <p><strong>Threat:</strong> Weak encryption of seed lockboxes.</p>
             <p><strong>Mitigation:</strong> All encrypted payloads MUST use AEAD with ≥ 256-bit keys. XChaCha20-Poly1305 or AES-256-GCM are REQUIRED. The algorithm MUST be explicitly named in the DID Document.</p>
-            <p><strong>DID-TM Mapping:</strong> This threat is classified under <span class="tc tc-i">I — Information Disclosure</span> and <span class="tc tc-k">K (K1 — Key Ceremony Failure)</span>. Refer to <strong><a href="https://github.com/sirraya-labs/did-tm#sidechannel" target="_blank" rel="noopener noreferrer">DID-TM §22 (Side-Channel and Implementation Threats)</a></strong> for cryptographic implementation requirements. Normative mitigations: REQ-460, REQ-461.</p>
+            <p><strong>DID-TM Mapping:</strong> This threat is classified under <span class="tc tc-i">I — Information Disclosure</span> and <span class="tc tc-k">K (K1 — Key Ceremony Failure)</span>. Refer to <strong><a href="https://sirraya-labs.github.io/did-tm/#sidechannel" target="_blank" rel="noopener noreferrer">DID-TM §22 (Side-Channel and Implementation Threats)</a></strong> for cryptographic implementation requirements. Normative mitigations: REQ-460, REQ-461.</p>
 
             <h3>8.6 Quantum Computing Resistance</h3>
             <p>Current algorithms are secure against classical computers. Implementations SHOULD plan transition paths:</p>
@@ -1261,7 +1261,7 @@ L<sub>j</sub>(0)  =  ∏<sub>m≠j</sub>  (0 − x<sub>m</sub>) / (x<sub>j</sub>
                 <li><strong>Type B:</strong> Use hash-based signatures for seed commitment.</li>
                 <li><strong>Type C:</strong> Transition to threshold lattice signatures when standardized.</li>
             </ul>
-            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-k">K (K5 — Post-Quantum Migration Failure)</span>. Full analysis in <strong><a href="https://github.com/sirraya-labs/did-tm#postquantum" target="_blank" rel="noopener noreferrer">DID-TM §23 (Post-Quantum Threat Model)</a></strong>, including Harvest-Now Decrypt-Later attacks and migration dependency analysis. Normative mitigations: REQ-470, REQ-471.</p>
+            <p><strong>DID-TM Mapping:</strong> This threat is classified as <span class="tc tc-k">K (K5 — Post-Quantum Migration Failure)</span>. Full analysis in <strong><a href="https://sirraya-labs.github.io/did-tm/#postquantum" target="_blank" rel="noopener noreferrer">DID-TM §23 (Post-Quantum Threat Model)</a></strong>, including Harvest-Now Decrypt-Later attacks and migration dependency analysis. Normative mitigations: REQ-470, REQ-471.</p>
         </section>
 
         <!-- ── Privacy ── -->
@@ -1270,12 +1270,12 @@ L<sub>j</sub>(0)  =  ∏<sub>m≠j</sub>  (0 − x<sub>m</sub>) / (x<sub>j</sub>
 
             <div class="callout note">
                 <div class="callout-label">Normative Reference</div>
-                <p>For complete privacy threat analysis, refer to <strong><a href="https://github.com/sirraya-labs/did-tm#linddun-did" target="_blank" rel="noopener noreferrer">DID-TM §6 (LINDDUN-DID Privacy Threat Mapping)</a></strong> and <strong><a href="https://github.com/sirraya-labs/did-tm#privacy-requirements" target="_blank" rel="noopener noreferrer">DID-TM §25 (Normative Privacy Requirements)</a></strong>, which provide structured mapping of linkability, identifiability, detectability, and other privacy threats with traceable controls.</p>
+                <p>For complete privacy threat analysis, refer to <strong><a href="https://sirraya-labs.github.io/did-tm/#linddun-did" target="_blank" rel="noopener noreferrer">DID-TM §6 (LINDDUN-DID Privacy Threat Mapping)</a></strong> and <strong><a href="https://sirraya-labs.github.io/did-tm/#privacy-requirements" target="_blank" rel="noopener noreferrer">DID-TM §25 (Normative Privacy Requirements)</a></strong>, which provide structured mapping of linkability, identifiability, detectability, and other privacy threats with traceable controls. View on <strong><a href="https://github.com/sirraya-labs/did-tm" target="_blank" rel="noopener noreferrer">GitHub</a></strong>.</p>
             </div>
 
             <h3>9.1 Metadata Leakage</h3>
             <p>Recovery methods may expose social graph (guardian identities), security posture (threshold values), and activity patterns. Mitigations include encrypted DID Document entries, guardian anonymity via onion services, and minimum-disclosure design.</p>
-            <p><strong>DID-TM Mapping:</strong> This threat falls under <span class="tc tc-i">I — Information Disclosure</span> and LINDDUN-DID's <strong>Linkability</strong> and <strong>Detectability</strong> categories. Refer to <strong><a href="https://github.com/sirraya-labs/did-tm#did-tm-atk-501" target="_blank" rel="noopener noreferrer">DID-TM-ATK-501</a></strong> (Cross-DID Correlation via Resolver Logs) and PRI-301 (hashed guardian identifiers).</p>
+            <p><strong>DID-TM Mapping:</strong> This threat falls under <span class="tc tc-i">I — Information Disclosure</span> and LINDDUN-DID's <strong>Linkability</strong> and <strong>Detectability</strong> categories. Refer to <strong><a href="https://sirraya-labs.github.io/did-tm/#did-tm-atk-501" target="_blank" rel="noopener noreferrer">DID-TM-ATK-501</a></strong> (Cross-DID Correlation via Resolver Logs) and PRI-301 (hashed guardian identifiers).</p>
 
             <h3>9.2 Guardian Privacy</h3>
             <p>Instead of full DIDs, implementations SHOULD publish salted hashes:</p>
@@ -1287,19 +1287,23 @@ L<sub>j</sub>(0)  =  ∏<sub>m≠j</sub>  (0 − x<sub>m</sub>) / (x<sub>j</sub>
             "commitmentIndex": 0
         }
         ]</code></pre>
-            <p><strong>DID-TM Mapping:</strong> This mitigation corresponds to DID-TM <strong><a href="https://github.com/sirraya-labs/did-tm#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-301</a></strong> (Recovery method representations MUST use hashed or pseudonymous guardian identifiers).</p>
+            <p><strong>DID-TM Mapping:</strong> This mitigation corresponds to DID-TM <strong><a href="https://sirraya-labs.github.io/did-tm/#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-301</a></strong> (Recovery method representations MUST use hashed or pseudonymous guardian identifiers).</p>
 
             <h3>9.3 Correlation Risk</h3>
             <p>The same recovery method across multiple DIDs could correlate them. DID controllers SHOULD use different guardian sets, salt values, and encryption keys per DID.</p>
-            <p><strong>DID-TM Mapping:</strong> This threat is addressed by DID-TM <strong><a href="https://github.com/sirraya-labs/did-tm#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-200</a></strong> (pairwise DIDs) and <strong><a href="https://github.com/sirraya-labs/did-tm#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-201</a></strong> (ZKP unlinkability). Refer to DID-TM §25.2 for complete unlinkability requirements.</p>
+            <p><strong>DID-TM Mapping:</strong> This threat is addressed by DID-TM <strong><a href="https://sirraya-labs.github.io/did-tm/#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-200</a></strong> (pairwise DIDs) and <strong><a href="https://sirraya-labs.github.io/did-tm/#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-201</a></strong> (ZKP unlinkability). Refer to DID-TM §25.2 for complete unlinkability requirements.</p>
 
             <h3>9.4 Beneficiary Privacy</h3>
             <p>Beneficiaries SHOULD use single-use derived keys specific to each inheritance relationship, not linked to their primary identity.</p>
-            <p><strong>DID-TM Mapping:</strong> This aligns with DID-TM <strong><a href="https://github.com/sirraya-labs/did-tm#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-102</a></strong> (data minimization) and <strong><a href="https://github.com/sirraya-labs/did-tm#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-302</a></strong> (single-use credentials for sensitive attributes).</p>
+            <p><strong>DID-TM Mapping:</strong> This aligns with DID-TM <strong><a href="https://sirraya-labs.github.io/did-tm/#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-102</a></strong> (data minimization) and <strong><a href="https://sirraya-labs.github.io/did-tm/#privacy-requirements" target="_blank" rel="noopener noreferrer">PRI-302</a></strong> (single-use credentials for sensitive attributes).</p>
 
             <div class="callout note">
                 <div class="callout-label">Complete Reference</div>
-                <p>For comprehensive coverage, including the full STRIDE-DID taxonomy, the novel K-Class (Key Lifecycle Failure), the complete attack catalog (50+ attacks with CVSS-DID scoring), and all normative security/privacy requirements with traceability matrices, see the <strong><a href="https://github.com/sirraya-labs/did-tm" target="_blank" rel="noopener noreferrer">DID Threat Model Specification (DID-TM)</a></strong>.</p>
+                <p>For comprehensive coverage, including the full STRIDE-DID taxonomy, the novel K-Class (Key Lifecycle Failure), the complete attack catalog (50+ attacks with CVSS-DID scoring), and all normative security/privacy requirements with traceability matrices, see:</p>
+                <ul>
+                    <li><strong><a href="https://sirraya-labs.github.io/did-tm/" target="_blank" rel="noopener noreferrer">DID Threat Model Specification — HTML Preview</a></strong> (readable version)</li>
+                    <li><strong><a href="https://github.com/sirraya-labs/did-tm" target="_blank" rel="noopener noreferrer">DID-TM GitHub Repository</a></strong> (source, issues, contributions)</li>
+                </ul>
             </div>
         </section>
 

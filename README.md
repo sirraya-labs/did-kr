@@ -55,11 +55,7 @@ The specification includes guardian privacy enhancements through salted hashes a
 
 ---
 
-## Resources
 
-| Resource | Link |
-|----------|------|
-| **DID-KR Specification** | [Repository Link] |
 
 ---
 
